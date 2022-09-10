@@ -26,7 +26,7 @@ function captureTime(){
         currentMoment = moment();
         // code below was for testing
         // currentMoment.add(59, 'm')
-        timeNow.text(currentMoment);
+        
         
         
     }, 1000);
