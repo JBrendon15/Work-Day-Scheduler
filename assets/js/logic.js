@@ -1,8 +1,9 @@
+//this adds the current date on the jumbotron of the page
 let currentDay = $('#currentDay');
 currentDay.text(moment().format('dddd, MMMM Do'));
 
 
-
+//these are variables to keep track of the current time
 let scheduleTime = $('#schedule-time');
 let format = 'HH:mm:ss';
 let currentMoment = moment();
@@ -19,12 +20,13 @@ let sixOclock = moment('18:00:00', format);
 let dayBegins = moment('00:00:00', format);
 
 
-
+//this function is called when page is loaded, it sets an interval to call checkTime function every second as well as setting the current moment to exact current time.
 function captureTime(){
     setInterval(function(){
         checkTime();
+        //comment out line below to test
         currentMoment = moment();
-        // code below was for testing
+        // comment in line below to test
         // currentMoment.add(59, 'm')
         
         
@@ -33,6 +35,7 @@ function captureTime(){
     
 }
 
+//this function uses the updated time every second to check the if conditions to update the background colors of the time blocks.
 function checkTime(){
     if(currentMoment.isSameOrAfter(dayBegins)){
         $('#nineAM').addClass('future');
@@ -104,6 +107,8 @@ function checkTime(){
     }
 
 }
+
+//this line will call the captureTime function when the page is loaded and ready to run javascript codes
 $(document).ready(captureTime)
 
 
